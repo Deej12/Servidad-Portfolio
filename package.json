@@ -2,12 +2,5 @@
   "name": "servidad-portfolio",
   "private": true,
   "version": "1.0.0",
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build"
-  },
-  "devDependencies": {
-    "vite": "^7.1.5"
-  }
+  "description": "Static portfolio site of Daniel Joshua M. Servidad"
 }

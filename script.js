@@ -35,7 +35,7 @@ app.innerHTML = `
         <p>Web Developer · IT Support</p>
         <div class="socials">
           <a href="mailto:dj.m.servidad@gmail.com" aria-label="Email Daniel"><i class="ph ph-envelope-simple"></i></a>
-          <a href="https://linkedin.com/in/daniel-joshua-servidad-2ba8763a" target="_blank" rel="noreferrer" aria-label="LinkedIn profile"><i class="ph ph-linkedin-logo"></i></a>
+          <a href="https://linkedin.com/in/daniel-joshua-servidad-2ba8763a6" target="_blank" rel="noreferrer" aria-label="LinkedIn profile"><i class="ph ph-linkedin-logo"></i></a>
           <a href="#contact" aria-label="Contact Daniel"><i class="ph ph-chat-circle-dots"></i></a>
         </div>
       </div>
