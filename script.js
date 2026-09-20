@@ -24,6 +24,19 @@ const tools = [
 const profileImage = './src/assets/profilePic.jpg';
 
 const app = document.querySelector('#app');
+const navMarkup = navItems
+  .map(
+    ([icon, label, href]) =>
+      `<a class="nav-link ${label === 'Home' ? 'active' : ''}" href="${href}" data-section="${href.slice(1)}"><i class="ph ph-${icon}"></i><span>${label}</span></a>`
+  )
+  .join('');
+
+const mobileNavMarkup = navItems
+  .map(
+    ([icon, label, href]) =>
+      `<a class="nav-link ${label === 'Home' ? 'active' : ''}" href="${href}" data-section="${href.slice(1)}"><i class="ph ph-${icon}"></i><span>${label}</span></a>`
+  )
+  .join('');
 
 app.innerHTML = `
   <div class="site-shell">
@@ -39,19 +52,13 @@ app.innerHTML = `
           <a href="#contact" aria-label="Contact Daniel"><i class="ph ph-chat-circle-dots"></i></a>
         </div>
       </div>
-      <nav aria-label="Primary navigation">
-        ${navItems
-          .map(
-            ([icon, label, href]) =>
-              `<a class="nav-link ${label === 'Home' ? 'active' : ''}" href="${href}" data-section="${href.slice(1)}"><i class="ph ph-${icon}"></i><span>${label}</span></a>`
-          )
-          .join('')}
-      </nav>
+      <nav class="nav-links desktop-nav" aria-label="Primary navigation">${navMarkup}</nav>
       <div class="sidebar-footer"><span class="status-dot"></span> Available for opportunities</div>
     </aside>
 
     <main>
       <header class="mobile-header"><div class="brand"><span class="brand-mark">DS</span><span>Servidad<span class="brand-dot">.</span></span></div><button class="menu-toggle" aria-label="Open menu"><i class="ph ph-list"></i></button></header>
+      <nav class="nav-links mobile-nav" aria-label="Mobile navigation">${mobileNavMarkup}</nav>
       <section class="hero section" id="home">
         <div class="eyebrow"><span class="eyebrow-line"></span> Fresh graduate · BS Information Technology</div>
         <h1>Building useful digital<br /><span>experiences that work.</span></h1>
