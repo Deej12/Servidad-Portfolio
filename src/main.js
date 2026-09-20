@@ -1,4 +1,5 @@
 import './style.css';
+import profileImage from './assets/profilePic.jpg';
 import androidStudioIcon from '../Icons/androidStudio.png';
 import canvaIcon from '../Icons/canva.png';
 import claudeIcon from '../Icons/claude.png';
@@ -40,7 +41,7 @@ document.querySelector('#app').innerHTML = `
     <aside class="sidebar">
       <div class="brand"><span class="brand-mark">DS</span><span>Servidad<span class="brand-dot">.</span></span></div>
       <div class="profile">
-        <div class="avatar"><img src="/dist/assets/profilePic.jpg" alt="Daniel Joshua Servidad" /></div>
+        <div class="avatar"><img src="${profileImage}" alt="Daniel Joshua Servidad" /></div>
         <h2>Daniel Joshua<br />Servidad</h2>
         <p>Web Developer · IT Support</p>
         <div class="socials">
