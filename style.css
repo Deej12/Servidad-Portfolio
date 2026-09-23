@@ -179,6 +179,7 @@ img {
   display: grid;
   place-items: center;
   color: #d4ecdd;
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .socials a:hover,
@@ -186,6 +187,9 @@ img {
 .socials button:focus-visible {
   background: var(--orange);
   border-color: var(--orange);
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 18px rgba(239, 120, 52, 0.25);
 }
 
 .nav-links {
@@ -205,6 +209,7 @@ img {
   border-radius: 11px;
   color: #afc0be;
   font-size: 0.9rem;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, padding-left 0.3s ease;
 }
 
 .nav-link i {
@@ -215,6 +220,8 @@ img {
 .nav-link:hover {
   background: #28494d;
   color: white;
+  transform: translateX(4px);
+  padding-left: 18px;
 }
 
 .nav-link.active i {
@@ -372,12 +379,38 @@ main {
 }
 
 .text-link {
+  position: relative;
   font-weight: 600;
   font-size: 0.9rem;
 }
 
+.text-link::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: -5px;
+  left: 0;
+  height: 2px;
+  background: var(--orange);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+.text-link:hover::after,
+.text-link:focus-visible::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
 .text-link i {
   color: var(--orange);
+  transition: transform 0.3s ease;
+}
+
+.text-link:hover i,
+.text-link:focus-visible i {
+  transform: translateX(4px);
   margin-left: 5px;
 }
 
@@ -508,6 +541,10 @@ main {
   animation: scroll 28s linear infinite;
 }
 
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
 .marquee span {
   display: flex;
   align-items: center;
@@ -576,6 +613,11 @@ main {
 .project-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 18px 35px rgba(25, 57, 60, 0.1);
+}
+
+.project-card:focus-within {
+  border-color: var(--orange);
+  box-shadow: 0 18px 35px rgba(239, 120, 52, 0.14);
 }
 
 .card-top {
@@ -943,6 +985,12 @@ body.lightbox-open {
   align-items: center;
   color: var(--muted);
   font-size: 0.72rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.credential-list span:hover {
+  color: var(--ink);
+  transform: translateX(4px);
 }
 
 .credential-list i {
@@ -962,6 +1010,14 @@ body.lightbox-open {
   background: var(--panel);
   color: var(--muted);
   font-size: 0.62rem;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-cloud span:hover {
+  background: var(--orange);
+  color: #17272b;
+  transform: translateY(-3px);
+  box-shadow: 0 7px 15px rgba(239, 120, 52, 0.2);
 }
 
 .reveal {
@@ -985,11 +1041,23 @@ body.lightbox-open {
   gap: 18px;
   padding: 20px 0;
   border-bottom: 1px solid var(--line);
+  transition: border-color 0.3s ease, padding-left 0.3s ease, transform 0.3s ease;
+}
+
+.service-list > div:hover {
+  border-color: var(--orange);
+  padding-left: 10px;
+  transform: translateX(4px);
 }
 
 .service-list i {
   font-size: 1.7rem;
   color: var(--orange);
+  transition: transform 0.3s ease;
+}
+
+.service-list > div:hover i {
+  transform: scale(1.12) rotate(-5deg);
 }
 
 .service-list h3 {
