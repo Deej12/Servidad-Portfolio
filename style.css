@@ -27,7 +27,7 @@ body {
   font-family: Poppins, system-ui, sans-serif;
   font-size: 16px;
   line-height: 1.6;
-  transition: background-color 0.35s ease, color 0.35s ease;
+  transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 body.dark-theme {
@@ -45,6 +45,33 @@ body.dark-theme {
   --contact-accent: #b8f0d5;
   --contact-eyebrow: #c3ead8;
   --footer-text: #b9d4d0;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.45s;
+  animation-timing-function: ease-in-out;
+  mix-blend-mode: normal;
+}
+
+::view-transition-old(root) {
+  animation-name: theme-fade-out;
+}
+
+::view-transition-new(root) {
+  animation-name: theme-fade-in;
+}
+
+@keyframes theme-fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes theme-fade-in {
+  from {
+    opacity: 0;
+  }
 }
 
 a {
@@ -72,6 +99,7 @@ img {
   position: fixed;
   inset: 0 auto 0 0;
   z-index: 10;
+  transition: background-color 0.5s ease, color 0.5s ease, box-shadow 0.5s ease;
 }
 
 .brand {
@@ -197,7 +225,7 @@ img {
   color: #d4ecdd;
   cursor: pointer;
   font: inherit;
-  transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+  transition: background-color 0.35s ease, border-color 0.35s ease, color 0.35s ease, transform 0.35s ease;
 }
 
 .theme-toggle:hover,
@@ -205,6 +233,7 @@ img {
   background: rgba(239, 120, 52, 0.16);
   border-color: var(--orange);
   color: white;
+  transform: translateY(-1px);
 }
 
 .sidebar-theme-toggle {
@@ -241,6 +270,7 @@ img {
 main {
   margin-left: 270px;
   width: calc(100% - 270px);
+  transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 .section {
@@ -285,6 +315,7 @@ main {
 .hero h1 span,
  h2 span {
   color: var(--teal);
+  transition: color 0.5s ease;
 }
 
 .hero-copy {
@@ -309,6 +340,7 @@ main {
   padding: 14px 23px;
   font-weight: 600;
   font-size: 0.88rem;
+  transition: background-color 0.45s ease, border-color 0.45s ease, color 0.45s ease, box-shadow 0.45s ease, transform 0.35s ease;
 }
 
 .button-primary {
@@ -318,6 +350,7 @@ main {
 
 .button-primary:hover {
   background: var(--orange);
+  transform: translateY(-2px);
 }
 
 .button-outline {
@@ -330,11 +363,16 @@ main {
   border-color: var(--orange);
   color: var(--orange);
   background: #fffaf6;
+  transform: translateY(-2px);
 }
 
 .button-light {
   background: var(--sage);
   color: var(--ink);
+}
+
+.button-light:hover {
+  transform: translateY(-2px);
 }
 
 .text-link {
@@ -372,6 +410,7 @@ main {
   gap: 30px;
   padding: 19px 7vw;
   overflow: hidden;
+  transition: background-color 0.5s ease, border-color 0.5s ease;
 }
 
 .tool-title {
@@ -466,7 +505,7 @@ main {
   border-radius: 20px;
   padding: 21px;
   box-shadow: 0 10px 30px var(--shadow);
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: background-color 0.5s ease, border-color 0.5s ease, color 0.5s ease, transform 0.3s ease, box-shadow 0.5s ease;
 }
 
 .project-card:hover {
@@ -712,6 +751,7 @@ body.lightbox-open {
   font-size: 0.78rem;
   color: var(--muted);
   margin: 0 0 18px;
+  transition: color 0.5s ease;
 }
 
 .tech-list {
@@ -726,6 +766,7 @@ body.lightbox-open {
   padding: 4px 9px;
   border-radius: 20px;
   color: #56716c;
+  transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 .split-section {
@@ -766,6 +807,7 @@ body.lightbox-open {
 .about-section {
   background: var(--soft);
   max-width: none;
+  transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 .about-card {
@@ -777,6 +819,7 @@ body.lightbox-open {
   max-width: 680px;
   color: var(--muted);
   font-size: 0.9rem;
+  transition: color 0.5s ease;
 }
 
 .about-stats {
@@ -792,17 +835,20 @@ body.lightbox-open {
 .about-stats strong {
   font-size: 1.8rem;
   color: var(--teal);
+  transition: color 0.5s ease;
 }
 
 .about-stats span {
   font-size: 0.7rem;
   color: var(--muted);
+  transition: color 0.5s ease;
 }
 
 .contact-section {
   max-width: none;
   background: var(--teal);
   color: white;
+  transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 .contact-card {
@@ -831,6 +877,7 @@ footer {
   padding: 22px 7vw;
   color: #78908c;
   font-size: 0.7rem;
+  transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 body.dark-theme .contact-section {
@@ -872,6 +919,7 @@ body.dark-theme .mobile-header,
 body.dark-theme .mobile-nav {
   background: rgba(17, 30, 36, 0.92);
   border-color: var(--line);
+  transition: background-color 0.5s ease, border-color 0.5s ease;
 }
 
 body.dark-theme .mobile-header .brand,
@@ -896,6 +944,17 @@ body.dark-theme .button-outline:hover {
 body.dark-theme .queue-window {
   background: #f8fbf7;
   color: #152d35;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
 }
 
 .mobile-header {

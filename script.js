@@ -108,7 +108,7 @@ const themeToggles = document.querySelectorAll('.theme-toggle');
 const savedTheme = localStorage.getItem('portfolio-theme');
 const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-const setTheme = (theme) => {
+const applyTheme = (theme) => {
   const isDark = theme === 'dark';
   document.body.classList.toggle('dark-theme', isDark);
   localStorage.setItem('portfolio-theme', theme);
@@ -122,7 +122,16 @@ const setTheme = (theme) => {
   });
 };
 
-setTheme(savedTheme || (prefersDark ? 'dark' : 'light'));
+const setTheme = (theme, animate = true) => {
+  if (!animate || !document.startViewTransition) {
+    applyTheme(theme);
+    return;
+  }
+
+  document.startViewTransition(() => applyTheme(theme));
+};
+
+setTheme(savedTheme || (prefersDark ? 'dark' : 'light'), false);
 themeToggles.forEach((toggle) => {
   toggle.addEventListener('click', () => {
     setTheme(document.body.classList.contains('dark-theme') ? 'light' : 'dark');
