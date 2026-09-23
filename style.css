@@ -931,6 +931,18 @@ body.dark-theme .mobile-nav {
   transition: background-color 0.5s ease, border-color 0.5s ease;
 }
 
+body.dark-theme .sidebar-footer {
+  background: #152d35;
+  color: #f1fbf5;
+  border-top-color: rgba(212, 236, 221, 0.24);
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.22);
+}
+
+body.dark-theme .sidebar-footer .status-dot {
+  background: #83e5a8;
+  box-shadow: 0 0 0 4px rgba(131, 229, 168, 0.12), 0 0 12px rgba(131, 229, 168, 0.55);
+}
+
 body.dark-theme .mobile-header .brand,
 body.dark-theme .mobile-header .menu-toggle {
   color: var(--ink);
@@ -1029,7 +1041,7 @@ body.dark-theme .queue-window {
     bottom: 0;
     padding: 14px 10px 4px;
     margin-top: 18px;
-    background: var(--ink);
+    background: #152d35;
     border-top: 1px solid rgba(212, 236, 221, 0.16);
     color: var(--sage);
     font-size: 0.76rem;
