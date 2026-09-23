@@ -22,6 +22,11 @@ const tools = [
 ];
 
 const profileImage = './src/assets/profilePic.jpg';
+const projectImages = {
+  capstone: './src/assets/capstone.png',
+  iqviaForms: './src/assets/IqviaForms.png',
+  wedding: './src/assets/Wedding.png',
+};
 const cvFile = './src/assets/Servidad%20-%20CV.pdf';
 
 const app = document.querySelector('#app');
@@ -76,9 +81,9 @@ app.innerHTML = `
       <section class="section content-section" id="projects">
         <div class="section-heading"><div><div class="eyebrow">Selected work</div><h2>Projects with purpose.</h2></div><p>Thoughtful systems designed to improve everyday workflows.</p></div>
         <div class="project-grid">
-          <article class="project-card featured"><div class="card-top"><span class="tag">Capstone research project</span><i class="ph ph-arrow-up-right"></i></div><div class="project-visual queue-visual"><div class="queue-window"><div class="window-dots">● ● ●</div><div class="queue-title">QUEUE-<span>OUR</span>-CODE</div><div class="queue-sub">Smart queueing for better customer flow</div><div class="queue-steps"><b>01</b><b>02</b><b>03</b></div></div></div><h3>Queue-Our-Code</h3><p>A QR code-based queueing system designed for Star Parks Corporation to reduce waiting time and make customer flow more efficient.</p><div class="tech-list"><span>QR Code</span><span>Web Development</span><span>UX Design</span></div></article>
-          <article class="project-card"><div class="card-top"><span class="tag">Work experience</span><i class="ph ph-arrow-up-right"></i></div><div class="project-visual forms-visual"><i class="ph ph-notepad"></i><i class="ph ph-check-square"></i><i class="ph ph-file-text"></i></div><h3>Digital forms & workflow tools</h3><p>Supported IQVIA forms and helped develop a User Deactivation Tracker using Microsoft PowerApps at Makati Medical Center.</p><div class="tech-list"><span>PowerApps</span><span>IQVIA</span><span>UAT</span></div></article>
-          <article class="project-card"><div class="card-top"><span class="tag">IT support</span><i class="ph ph-arrow-up-right"></i></div><div class="project-visual support-visual"><i class="ph ph-wifi-high"></i><span>System troubleshooting</span><i class="ph ph-database"></i></div><h3>Technical support operations</h3><p>Resolved connectivity issues, assisted with database debugging, and helped teams keep their daily operations moving.</p><div class="tech-list"><span>Networking</span><span>Databases</span><span>Support</span></div></article>
+          <article class="project-card featured"><div class="card-top"><span class="tag">Capstone research project</span><i class="ph ph-arrow-up-right"></i></div><button class="project-visual project-image-button" type="button" data-image="${projectImages.capstone}" data-title="Queue-Our-Code"><img src="${projectImages.capstone}" alt="Queue-Our-Code QR queueing system project preview" /><span class="image-hint"><i class="ph ph-arrows-out"></i> View project</span></button><h3>Queue-Our-Code: A QR Code-Driven Queueing System App for Star Parks Corporation</h3><p>A QR code-driven queueing system designed to help Star Parks Corporation manage visitor flow more efficiently. Guests can scan a code, join a queue digitally, and explore the amusement park instead of spending their visit waiting in lines.</p><div class="tech-list"><span>QR Code</span><span>Queue Management</span><span>Web App</span></div></article>
+          <article class="project-card"><div class="card-top"><span class="tag">Work experience</span><i class="ph ph-arrow-up-right"></i></div><button class="project-visual project-image-button" type="button" data-image="${projectImages.iqviaForms}" data-title="IQVIA Hospital Information System & User-Deactivation Tracker"><img src="${projectImages.iqviaForms}" alt="IQVIA Hospital Information System and forms project preview" /><span class="image-hint"><i class="ph ph-arrows-out"></i> View project</span></button><h3>IQVIA Hospital Information System & User-Deactivation Tracker (UDT)</h3><p>Supported hospital information system workflows through IQVIA forms and contributed to the User-Deactivation Tracker. My role focused on the outsource portion of the UDT, helping organize and support the process for deactivating user access.</p><div class="tech-list"><span>IQVIA Forms</span><span>User Deactivation</span><span>Outsource</span></div></article>
+          <article class="project-card"><div class="card-top"><span class="tag">Client project</span><i class="ph ph-arrow-up-right"></i></div><button class="project-visual project-image-button" type="button" data-image="${projectImages.wedding}" data-title="Annie & Wendel - Interactive Wedding Website"><img src="${projectImages.wedding}" alt="Annie and Wendel interactive wedding website preview" /><span class="image-hint"><i class="ph ph-arrows-out"></i> View project</span></button><h3>Annie & Wendel — Interactive Wedding Website</h3><p>Created a personalized wedding website for Annie and Wendel, collaborating closely with the couple to understand their preferred look, feel, and details. I translated their ideas into an interactive experience they loved.</p><div class="tech-list"><span>Web Design</span><span>Client Collaboration</span><span>Responsive UI</span></div></article>
         </div>
       </section>
 
@@ -90,6 +95,7 @@ app.innerHTML = `
       <section class="section about-section" id="about"><div class="about-card"><div class="eyebrow">A little about me</div><h2>Curious by nature.<br />Dependable by choice.</h2><p>I’m a Bachelor of Science in Information Technology graduate from De La Salle University–Dasmariñas, where I made the Dean’s List throughout my degree and served as class president.</p><p>From building systems to supporting people, I bring a calm, collaborative approach to technical work. I’m always looking for the next problem worth solving.</p><div class="about-stats"><div><strong>95–97</strong><span>GPA equivalent</span></div><div><strong>486</strong><span>Hours of OJT</span></div><div><strong>2+</strong><span>Years learning by doing</span></div></div></div></section>
 
       <section class="section contact-section" id="contact"><div class="contact-card"><div><div class="eyebrow">Have a role or project in mind?</div><h2>Let’s make something<br /><span>work better.</span></h2></div><a class="button button-light" href="mailto:dj.m.servidad@gmail.com">Get in touch <i class="ph ph-arrow-up-right"></i></a></div></section>
+      <div class="image-lightbox" role="dialog" aria-modal="true" aria-label="Project image preview" aria-hidden="true"><button class="lightbox-close" type="button" aria-label="Close image preview"><i class="ph ph-x"></i></button><div class="lightbox-content"><img src="" alt="" /><p></p></div></div>
       <footer><span>© 2026 Daniel Joshua M. Servidad</span><span>Designed & built with care</span></footer>
     </main>
   </div>
@@ -129,3 +135,32 @@ links.forEach((link) =>
     document.querySelector('.menu-toggle i').className = 'ph ph-list';
   })
 );
+
+const lightbox = document.querySelector('.image-lightbox');
+const lightboxImage = lightbox.querySelector('img');
+const lightboxTitle = lightbox.querySelector('p');
+const closeLightbox = () => {
+  lightbox.classList.remove('is-visible');
+  lightbox.setAttribute('aria-hidden', 'true');
+  document.body.classList.remove('lightbox-open');
+};
+
+document.querySelectorAll('.project-image-button').forEach((button) => {
+  button.addEventListener('click', () => {
+    lightboxImage.src = button.dataset.image;
+    lightboxImage.alt = button.querySelector('img').alt;
+    lightboxTitle.textContent = button.dataset.title;
+    lightbox.classList.add('is-visible');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('lightbox-open');
+    lightbox.querySelector('.lightbox-close').focus();
+  });
+});
+
+lightbox.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
+lightbox.addEventListener('click', (event) => {
+  if (event.target === lightbox) closeLightbox();
+});
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape' && lightbox.classList.contains('is-visible')) closeLightbox();
+});
