@@ -676,6 +676,10 @@ footer {
   }
 
   .sidebar {
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+    scrollbar-color: #416568 var(--ink);
     position: fixed;
     inset: 0 auto 0 0;
     transform: translateX(-100%);
@@ -687,6 +691,19 @@ footer {
 
   .sidebar.open {
     transform: translateX(0);
+  }
+
+  .sidebar-footer {
+    position: sticky;
+    bottom: 0;
+    padding: 14px 10px 4px;
+    margin-top: 18px;
+    background: var(--ink);
+    border-top: 1px solid rgba(212, 236, 221, 0.16);
+    color: var(--sage);
+    font-size: 0.76rem;
+    line-height: 1.4;
+    z-index: 1;
   }
 
   main {
@@ -792,6 +809,20 @@ footer {
 
   .section {
     padding: 68px 6vw;
+  }
+
+  .sidebar .profile {
+    padding-top: 42px;
+    padding-bottom: 28px;
+  }
+
+  .sidebar .nav-links {
+    gap: 3px;
+    padding-top: 20px;
+  }
+
+  .sidebar .nav-link {
+    padding: 11px 14px;
   }
 
   .hero {
