@@ -22,6 +22,7 @@ const tools = [
 ];
 
 const profileImage = './src/assets/profilePic.jpg';
+const cvFile = './src/assets/Servidad%20-%20CV.pdf';
 
 const app = document.querySelector('#app');
 const navMarkup = navItems
@@ -63,7 +64,7 @@ app.innerHTML = `
         <div class="eyebrow"><span class="eyebrow-line"></span> Fresh graduate · BS Information Technology</div>
         <h1>Building useful digital<br /><span>experiences that work.</span></h1>
         <p class="hero-copy">Hi, I’m Daniel — a web developer and IT support professional who enjoys turning ideas, workflows, and problems into clear, reliable solutions.</p>
-        <div class="hero-actions"><a class="button button-primary" href="#projects">Explore my work <i class="ph ph-arrow-up-right"></i></a><a class="text-link" href="#contact">Let’s connect <i class="ph ph-arrow-right"></i></a></div>
+        <div class="hero-actions"><a class="button button-primary" href="#projects">Explore my work <i class="ph ph-arrow-up-right"></i></a><a class="button button-outline" href="${cvFile}" download="Daniel-Joshua-Servidad-CV.pdf"><i class="ph ph-download-simple"></i> Download my CV</a><a class="text-link" href="#contact">Let’s connect <i class="ph ph-arrow-right"></i></a></div>
         <div class="hero-note"><i class="ph ph-map-pin"></i> Imus, Cavite, Philippines <span></span> Open to entry-level IT roles</div>
       </section>
 

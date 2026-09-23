@@ -241,7 +241,8 @@ main {
 .hero-actions {
   display: flex;
   align-items: center;
-  gap: 28px;
+  flex-wrap: wrap;
+  gap: 14px 22px;
   margin-top: 30px;
 }
 
@@ -262,6 +263,18 @@ main {
 
 .button-primary:hover {
   background: var(--orange);
+}
+
+.button-outline {
+  border: 1px solid var(--line);
+  background: white;
+  color: var(--ink);
+}
+
+.button-outline:hover {
+  border-color: var(--orange);
+  color: var(--orange);
+  background: #fffaf6;
 }
 
 .button-light {
@@ -788,7 +801,7 @@ footer {
   }
 
   .hero-actions {
-    gap: 18px;
+    gap: 14px;
   }
 
   .hero-actions,
