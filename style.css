@@ -881,6 +881,19 @@ body.dark-theme .contact-section {
   color: var(--contact-heading);
 }
 
+body.dark-theme .button-primary {
+  background: var(--orange);
+  color: #17272b;
+  box-shadow: 0 10px 24px rgba(239, 120, 52, 0.28);
+}
+
+body.dark-theme .button-primary:hover,
+body.dark-theme .button-primary:focus-visible {
+  background: #ff9a58;
+  color: #102126;
+  box-shadow: 0 13px 28px rgba(239, 120, 52, 0.38);
+}
+
 body.dark-theme .contact-card .eyebrow {
   color: var(--contact-eyebrow);
 }
@@ -904,19 +917,6 @@ body.dark-theme .button-light:hover,
 body.dark-theme .button-light:focus-visible {
   background: #f2fff7;
   color: #0d292f;
-}
-
-body.dark-theme .button-primary {
-  background: var(--orange);
-  color: #211810;
-  box-shadow: 0 10px 24px rgba(239, 120, 52, 0.28);
-}
-
-body.dark-theme .button-primary:hover,
-body.dark-theme .button-primary:focus-visible {
-  background: #ff9a5d;
-  color: #1b1510;
-  box-shadow: 0 14px 30px rgba(239, 120, 52, 0.38);
 }
 
 body.dark-theme footer {
