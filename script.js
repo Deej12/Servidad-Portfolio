@@ -2,6 +2,7 @@ const navItems = [
   ['house', 'Home', '#home'],
   ['folders', 'Projects', '#projects'],
   ['sparkle', 'Services', '#services'],
+  ['briefcase', 'Experience', '#experience'],
   ['user-circle', 'About', '#about'],
   ['paper-plane-tilt', 'Contact', '#contact'],
 ];
@@ -79,6 +80,11 @@ app.innerHTML = `
         <div class="marquee"><div class="marquee-track">${[...tools, ...tools].map(([title, icon]) => `<span><img src="${icon}" alt="${title}" title="${title}" />${title}</span>`).join('')}</div></div>
       </section>
 
+      <section class="section snapshot-section" aria-label="Professional snapshot">
+        <div class="snapshot-card"><div class="snapshot-icon"><i class="ph ph-target"></i></div><div><div class="eyebrow">Career objective</div><p>Seeking an entry-level position in IT support or other IT-related roles where I can apply hands-on experience in technical support, software development, and database troubleshooting to contribute to organizational efficiency.</p></div></div>
+        <div class="snapshot-stats"><div><strong>486</strong><span>Hours of IT internship</span></div><div><strong>3+</strong><span>Core areas of practice</span></div><div><strong>B1</strong><span>TOEIC English level</span></div></div>
+      </section>
+
       <section class="section content-section" id="projects">
         <div class="section-heading"><div><div class="eyebrow">Selected work</div><h2>Projects with purpose.</h2></div><p>Thoughtful systems designed to improve everyday workflows.</p></div>
         <div class="project-grid">
@@ -91,6 +97,17 @@ app.innerHTML = `
       <section class="section split-section" id="services">
         <div><div class="eyebrow">What I do</div><h2>Reliable support.<br /><span>Practical development.</span></h2></div>
         <div class="service-list"><div><i class="ph ph-code"></i><div><h3>Web development</h3><p>Responsive websites and interfaces using modern front-end tools.</p></div></div><div><i class="ph ph-wrench"></i><div><h3>IT support & troubleshooting</h3><p>Patient, methodical support for systems, connectivity, and user needs.</p></div></div><div><i class="ph ph-database"></i><div><h3>Data & workflow solutions</h3><p>Organized tools that help teams simplify repetitive processes.</p></div></div></div>
+      </section>
+
+      <section class="section experience-section" id="experience">
+        <div class="section-heading"><div><div class="eyebrow">Experience & credentials</div><h2>Learning by doing.</h2></div><p>Hands-on experience across support, development, systems, and research.</p></div>
+        <div class="experience-grid">
+          <div class="timeline">
+            <article class="timeline-item"><span class="timeline-dot"></span><div class="timeline-meta"><span>Feb 2026 — May 2026</span><span>486 hours</span></div><h3>Information Technology Intern</h3><h4>Makati Medical Center · ICT Department</h4><ul><li>Assisted in developing and configuring digital forms using the IQVIA system.</li><li>Created and debugged scripts for nursing, doctor, and patient forms.</li><li>Helped develop the User-Deactivation Tracker and handled its outsource portion.</li><li>Participated in meetings, UAT, technical support tasks, and process improvement.</li></ul></article>
+            <article class="timeline-item"><span class="timeline-dot"></span><div class="timeline-meta"><span>May 2024 — Jun 2024</span><span>Part-time</span></div><h3>IT Support / Staff</h3><h4>Summer Employment for Enrollment · Naga City Hall</h4><ul><li>Assisted with coding, database debugging, and basic IT support.</li><li>Resolved Wi-Fi and network connectivity issues.</li><li>Supported office operations, enrollment activities, and system-related concerns.</li></ul></article>
+          </div>
+          <aside class="credentials-card"><div class="credentials-heading"><i class="ph ph-seal-check"></i><div><div class="eyebrow">Education</div><h3>De La Salle University – Dasmariñas</h3></div></div><p class="degree">Bachelor of Science in Information Technology · Graduated August 2026</p><div class="credential-list"><span><i class="ph ph-star"></i> Dean’s List · 1st–4th Year</span><span><i class="ph ph-users-three"></i> Class President · 3rd–4th Year</span><span><i class="ph ph-certificate"></i> Linux Essentials · PCAP Programming Essentials in Python</span><span><i class="ph ph-translate"></i> TOEIC Global English Certification · CEFR B1</span></div><div class="skill-cloud"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>React</span><span>Node.js</span><span>Python</span><span>C#</span><span>PHP</span><span>MySQL</span><span>Networking</span><span>UX Design</span></div></aside>
+        </div>
       </section>
 
       <section class="section about-section" id="about"><div class="about-card"><div class="eyebrow">A little about me</div><h2>Curious by nature.<br />Dependable by choice.</h2><p>I’m a Bachelor of Science in Information Technology graduate from De La Salle University–Dasmariñas, where I made the Dean’s List throughout my degree and served as class president.</p><p>From building systems to supporting people, I bring a calm, collaborative approach to technical work. I’m always looking for the next problem worth solving.</p><div class="about-stats"><div><strong>95–97</strong><span>GPA equivalent</span></div><div><strong>486</strong><span>Hours of OJT</span></div><div><strong>2+</strong><span>Years learning by doing</span></div></div></div></section>
@@ -152,6 +169,15 @@ const observer = new IntersectionObserver(
 );
 
 sections.forEach((section) => observer.observe(section));
+
+const revealObserver = new IntersectionObserver(
+  (entries) => entries.forEach((entry) => entry.target.classList.toggle('is-visible', entry.isIntersecting)),
+  { threshold: 0.12 }
+);
+document.querySelectorAll('.snapshot-section, .project-card, .split-section, .experience-section, .about-section, .contact-section').forEach((element) => {
+  element.classList.add('reveal');
+  revealObserver.observe(element);
+});
 
 document.querySelector('.menu-toggle')?.addEventListener('click', (event) => {
   const menuButton = event.currentTarget;
