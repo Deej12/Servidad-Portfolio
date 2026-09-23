@@ -58,7 +58,7 @@ app.innerHTML = `
     </aside>
 
     <main>
-      <header class="mobile-header"><div class="brand"><span class="brand-mark">DS</span><span>Servidad<span class="brand-dot">.</span></span></div><button class="menu-toggle" aria-label="Open menu"><i class="ph ph-list"></i></button></header>
+      <header class="mobile-header"><div class="brand"><span class="brand-mark">DS</span><span>Servidad<span class="brand-dot">.</span></span></div><button class="menu-toggle" aria-label="Open menu" aria-expanded="false"><i class="ph ph-list"></i></button></header>
       <nav class="nav-links mobile-nav" aria-label="Mobile navigation">${mobileNavMarkup}</nav>
       <section class="hero section" id="home">
         <div class="eyebrow"><span class="eyebrow-line"></span> Fresh graduate · BS Information Technology</div>
@@ -112,10 +112,20 @@ const observer = new IntersectionObserver(
 
 sections.forEach((section) => observer.observe(section));
 
-document.querySelector('.menu-toggle')?.addEventListener('click', () => {
-  document.querySelector('.sidebar').classList.toggle('open');
+document.querySelector('.menu-toggle')?.addEventListener('click', (event) => {
+  const menuButton = event.currentTarget;
+  const sidebar = document.querySelector('.sidebar');
+  const isOpen = sidebar.classList.toggle('open');
+  menuButton.setAttribute('aria-expanded', String(isOpen));
+  menuButton.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+  menuButton.querySelector('i').className = isOpen ? 'ph ph-x' : 'ph ph-list';
 });
 
 links.forEach((link) =>
-  link.addEventListener('click', () => document.querySelector('.sidebar').classList.remove('open'))
+  link.addEventListener('click', () => {
+    document.querySelector('.sidebar').classList.remove('open');
+    document.querySelector('.menu-toggle')?.setAttribute('aria-expanded', 'false');
+    document.querySelector('.menu-toggle')?.setAttribute('aria-label', 'Open menu');
+    document.querySelector('.menu-toggle i').className = 'ph ph-list';
+  })
 );
