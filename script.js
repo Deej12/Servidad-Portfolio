@@ -59,11 +59,12 @@ app.innerHTML = `
         </div>
       </div>
       <nav class="nav-links desktop-nav" aria-label="Primary navigation">${navMarkup}</nav>
+      <button class="theme-toggle sidebar-theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false"><i class="ph ph-moon"></i><span>Dark mode</span></button>
       <div class="sidebar-footer"><span class="status-dot"></span> Available for opportunities</div>
     </aside>
 
     <main>
-      <header class="mobile-header"><div class="brand"><span class="brand-mark">DS</span><span>Servidad<span class="brand-dot">.</span></span></div><button class="menu-toggle" aria-label="Open menu" aria-expanded="false"><i class="ph ph-list"></i></button></header>
+      <header class="mobile-header"><div class="brand"><span class="brand-mark">DS</span><span>Servidad<span class="brand-dot">.</span></span></div><div class="mobile-header-actions"><button class="theme-toggle mobile-theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false"><i class="ph ph-moon"></i></button><button class="menu-toggle" aria-label="Open menu" aria-expanded="false"><i class="ph ph-list"></i></button></div></header>
       <nav class="nav-links mobile-nav" aria-label="Mobile navigation">${mobileNavMarkup}</nav>
       <section class="hero section" id="home">
         <div class="eyebrow"><span class="eyebrow-line"></span> Fresh graduate · BS Information Technology</div>
@@ -103,6 +104,31 @@ app.innerHTML = `
 
 const links = document.querySelectorAll('.nav-link');
 const sections = document.querySelectorAll('main section[id]');
+const themeToggles = document.querySelectorAll('.theme-toggle');
+const savedTheme = localStorage.getItem('portfolio-theme');
+const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+const setTheme = (theme) => {
+  const isDark = theme === 'dark';
+  document.body.classList.toggle('dark-theme', isDark);
+  localStorage.setItem('portfolio-theme', theme);
+  themeToggles.forEach((toggle) => {
+    toggle.setAttribute('aria-pressed', String(isDark));
+    toggle.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+    const icon = toggle.querySelector('i');
+    icon.className = isDark ? 'ph ph-sun' : 'ph ph-moon';
+    const label = toggle.querySelector('span');
+    if (label) label.textContent = isDark ? 'Light mode' : 'Dark mode';
+  });
+};
+
+setTheme(savedTheme || (prefersDark ? 'dark' : 'light'));
+themeToggles.forEach((toggle) => {
+  toggle.addEventListener('click', () => {
+    setTheme(document.body.classList.contains('dark-theme') ? 'light' : 'dark');
+  });
+});
+
 const observer = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
