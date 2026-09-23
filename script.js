@@ -56,10 +56,10 @@ app.innerHTML = `
           <a href="mailto:dj.m.servidad@gmail.com" aria-label="Email Daniel"><i class="ph ph-envelope-simple"></i></a>
           <a href="https://linkedin.com/in/daniel-joshua-servidad-2ba8763a6" target="_blank" rel="noreferrer" aria-label="LinkedIn profile"><i class="ph ph-linkedin-logo"></i></a>
           <a href="#contact" aria-label="Contact Daniel"><i class="ph ph-chat-circle-dots"></i></a>
+          <button class="theme-toggle social-theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false"><i class="ph ph-moon"></i></button>
         </div>
       </div>
       <nav class="nav-links desktop-nav" aria-label="Primary navigation">${navMarkup}</nav>
-      <button class="theme-toggle sidebar-theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false"><i class="ph ph-moon"></i><span>Dark mode</span></button>
       <div class="sidebar-footer"><span class="status-dot"></span> Available for opportunities</div>
     </aside>
 

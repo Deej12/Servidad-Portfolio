@@ -90,7 +90,7 @@ img {
 }
 
 .sidebar {
-  background: var(--ink);
+  background: #152d35;
   color: #f6f8f2;
   width: 270px;
   padding: 32px 22px 24px;
@@ -170,7 +170,8 @@ img {
   margin-top: 20px;
 }
 
-.socials a {
+.socials a,
+.socials button {
   border: 1px solid rgba(255, 255, 255, 0.18);
   width: 33px;
   height: 33px;
@@ -180,7 +181,9 @@ img {
   color: #d4ecdd;
 }
 
-.socials a:hover {
+.socials a:hover,
+.socials button:hover,
+.socials button:focus-visible {
   background: var(--orange);
   border-color: var(--orange);
 }
@@ -236,20 +239,13 @@ img {
   transform: translateY(-1px);
 }
 
-.sidebar-theme-toggle {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  width: 100%;
-  margin-top: 24px;
-  padding: 11px 14px;
-  text-align: left;
-  font-size: 0.78rem;
+.social-theme-toggle {
+  padding: 0;
+  font-size: 1rem;
 }
 
-.sidebar-theme-toggle i {
-  color: var(--orange);
-  font-size: 1.1rem;
+.social-theme-toggle i {
+  color: inherit;
 }
 
 .sidebar-footer {
@@ -910,6 +906,19 @@ body.dark-theme .button-light:focus-visible {
   color: #0d292f;
 }
 
+body.dark-theme .button-primary {
+  background: var(--orange);
+  color: #211810;
+  box-shadow: 0 10px 24px rgba(239, 120, 52, 0.28);
+}
+
+body.dark-theme .button-primary:hover,
+body.dark-theme .button-primary:focus-visible {
+  background: #ff9a5d;
+  color: #1b1510;
+  box-shadow: 0 14px 30px rgba(239, 120, 52, 0.38);
+}
+
 body.dark-theme footer {
   background: #0c191f;
   color: var(--footer-text);
@@ -1141,10 +1150,6 @@ body.dark-theme .queue-window {
   .sidebar .nav-links {
     gap: 3px;
     padding-top: 20px;
-  }
-
-  .sidebar-theme-toggle {
-    margin-top: 16px;
   }
 
   .sidebar .nav-link {
